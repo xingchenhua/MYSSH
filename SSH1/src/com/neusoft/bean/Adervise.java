@@ -1,0 +1,23 @@
+package com.neusoft.bean;
+
+public class Adervise {
+	private Product product;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+}
