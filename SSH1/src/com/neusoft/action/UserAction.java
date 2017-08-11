@@ -17,6 +17,7 @@ public class UserAction extends ActionSupport {
 	private Page page;
 	private int currentPage=1;
 	private int pageSize=5;
+	private int totalPage;
 	//提供set方法进行注入
 	public void setUserService(UserService userService) {
 		this.userService = userService;
@@ -54,6 +55,12 @@ public class UserAction extends ActionSupport {
 	}
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
+	}
+	public int getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 	public List<User> getData() {
 		return data;
