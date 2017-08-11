@@ -63,20 +63,14 @@
     <div class="main-wrap">
 
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">用户管理</a><span class="crumb-step">&gt;</span><span>增加用户</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">用户管理</a><span class="crumb-step">&gt;</span><span>增加管理员</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-content">
-                <form action="" method="post" id="myform" name="myform">
+                <form action="adminUserAction!register.action" method="post" id="myform" name="myform">
                     <table class="insert-tab" width="100%">
                         <tbody><tr>
-                            <th width="120"><i class="require-red">*</i>用户类型：</th>
-                            <td>
-                                <select name="type" id="type" class="required"> 
-                                    <option value="1">管理员用户</option>
-                                    <option value="0">普通用户</option>
-                                </select>
-                            </td>
+                       
                         </tr>
                             <tr>
                                 <th><i class="require-red">*</i>用户名：</th>
@@ -84,23 +78,12 @@
                                     <input class="common-text required" id="username" name="username" size="50" value="" type="text">
                                 </td>
                             </tr>
-                            <tr>
-                                <th>真实姓名：</th>
-                                <td><input class="common-text" name="realname" size="50" type="text"></td>
-                            </tr>
+   
                             <tr>
                                 <th>密码：</th>
                                 <td><input class="common-text" name="password" size="50" type="text"></td>
                             </tr>
-                            <tr>
-                                <th>联系电话：</th>
-                                <td><input class="common-text" name="tel" size="50" type="text"></td>
-                            </tr>
-                            <tr>
-                                <th>邮箱：</th>
-                                <td><input class="common-text" name="email" size="50" type="text"></td>
-                            </tr>
-                            
+  
                             <tr>
                                 <th></th>
                                 <td>

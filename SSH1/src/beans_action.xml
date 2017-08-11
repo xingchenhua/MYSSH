@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
      
      <bean id="userAction" class="com.neusoft.action.UserAction">
-        <property name="userService" ref="userService"/>
+     <property name="userService" ref="userService"/>
      </bean> 
      
      <bean id="adminUserAction" class="com.neusoft.action.AdminUserAction">

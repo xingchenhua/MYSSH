@@ -1,7 +1,5 @@
 package com.neusoft.service;
 
-import java.util.List;
-
 import com.neusoft.bean.AdminUser;
 import com.neusoft.dao.page.Page;
 
@@ -10,9 +8,9 @@ public interface AdminUserService {
 
 	public void updateAdminUser(AdminUser adminUser);
 
-	public void deleteAdminUserById(int id);
+	public void deleteAdminUserById(AdminUser adminUser);
 
 	public Page findAdminUserList(int currentPage,int pageSize);
-	
+	public AdminUser findAdminUserById(int id);
 	
 }

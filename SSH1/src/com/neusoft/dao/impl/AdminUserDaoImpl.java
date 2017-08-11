@@ -15,7 +15,6 @@ import com.neusoft.dao.page.Page;
 
 public class AdminUserDaoImpl implements AdminUserDao {
 	private SessionFactory sessionFactory;
-
 	// 提供一个set方法进行注入
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -29,32 +28,30 @@ public class AdminUserDaoImpl implements AdminUserDao {
 
 	@Override
 	public void saveAdminUser(AdminUser adminUser) {
-		// TODO Auto-generated method stub
-
+		getsSession().save(adminUser);
 	}
 
 	@Override
 	public void updateAdminUser(AdminUser adminUser) {
-		// TODO Auto-generated method stub
+		getsSession().update(adminUser);
 
 	}
 
 	@Override
-	public void deleteAdminUserById(int id) {
-	
-
+	public void deleteAdminUserById(AdminUser adminUser) {
+		getsSession().delete(adminUser);
 	}
 
 	@Override
-	public Page findAdminUserList(int currentPage,int pageSize) {
+	public Page findAdminUserList(int currentPage, int pageSize) {
 		Query query = getsSession().createQuery("from AdminUser");
 		List<AdminUser> data1 = query.list();
-		//总0开始，总记录+1
-		query.setFirstResult((currentPage-1)*pageSize);
-		//总1开始，直接总记录
+		// 总0开始，总记录+1
+		query.setFirstResult((currentPage - 1) * pageSize);
+		// 总1开始，直接总记录
 		query.setMaxResults(pageSize);
 		List<AdminUser> data2 = query.list();
-		
+
 		Page page = new Page(data2);
 		page.setAllRow(data1.size());
 		page.setPageSize(pageSize);
@@ -63,5 +60,13 @@ public class AdminUserDaoImpl implements AdminUserDao {
 		page.isHasNextPage();
 		page.isHasPrePage();
 		return page;
-		}
+	}
+
+	@Override
+	public AdminUser findAdminById(int id) {
+		Query query = getsSession().createQuery(
+				"from AdminUser a where a.id=" + id);
+		AdminUser admin = (AdminUser)query.list().get(0);
+		return admin;
+	}
 }

@@ -9,6 +9,22 @@
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
+    <script type="text/javascript">
+    function allChoose(){
+     	  var allcheck=document.getElementById("allck");
+    	  var idcks=document.getElementsByName("ids"); 
+    	  if(allcheck.checked==true){
+    		  for(var i=0;i<idcks.length;i++){
+    			  idcks[i].checked=true;
+    		  }
+    	   }else{ 
+    		   for(var i=0;i<idcks.length;i++){
+     			  idcks[i].checked=false;
+     		  }
+    	   }
+       }
+
+    </script>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -39,7 +55,7 @@
                 <li>
                     <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
                     <ul class="sub-menu">
-                        <li><a href="userList.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+                        <li><a href="../userList.jsp"><i class="icon-font">&#xe008;</i>用户管理</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe006;</i>产品类别</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe005;</i>产品管理</a></li>
                         <li><a href="design.html"><i class="icon-font">&#xe005;</i>订单管理</a></li>
@@ -60,6 +76,7 @@
             </ul>
         </div>
     </div>
+
     <!--/sidebar-->
     <div class="main-wrap">
 
@@ -69,17 +86,17 @@
         <div class="search-wrap">
   
         <div class="result-wrap">
-            <form action="" name="myform" id="myform" method="post">
+            <form action="adminUserAction.action" name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="#"><i class="icon-font"></i>增加用户</a>
-                        <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a> 
+                        <a href="addAdminUser.jsp"><i class="icon-font"></i>增加管理员</a>
+                        <a id="batchDel" href="adminUserAction!deleteAdminById.action?id=<s:property value="id"/>"><i class="icon-font" ></i>批量删除</a> 
                     </div>
                 </div>
                 <div class="result-content">
                     <table class="result-tab" width="100%">
                         <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th class="tc" width="5%"><input class="allChoose" id="allck" type="checkbox" onclick="allChoose()"></th>
                             <th>ID</th>
                             <th>用户名</th>
                             <th>密码</th>
@@ -89,15 +106,15 @@
                         <!-- 使用Struts2标签显示数据 -->
                          <s:iterator value="page.data">
                         <tr>
-                            <td class="tc"><input name="ids" value=" " type="checkbox"></td>
+                            <td class="tc"><input name="ids" value="<s:property value="id"/> " type="checkbox"></td>
                             <td><s:property value="id"/></td>
                             <td><s:property value="username"/></td>
                             <td><s:property value="password"/></td>
                             <td><s:property value="lastLoginTime"/></td>
                             
                             <td>
-                                <a class="link-update" href=" ">修改</a>
-                                <a class="link-del" href=" ">删除</a>
+                                <a class="link-update" href="adminUserAction!findAdminById.action?id=<s:property value="id"/>">修改</a>
+                                <a class="link-del" href="adminUserAction!deleteAdminById.action?id=<s:property value="id"/>"">删除</a>
                             </td>
                         </tr> 
                         </s:iterator>

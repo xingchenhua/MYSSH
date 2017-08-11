@@ -3,12 +3,12 @@
 <struts>
     <package name="ssh" namespace="/admin" extends="struts-default">
        <action name="userAction" class="userAction">
-          <result name="success">/success.jsp</result>
-          <result name="input">/input.jsp</result>
+          <result name="success">/admin/userList.jsp</result>
        </action>
-       
+       <!-- class="bean中的id" -->
        <action name="adminUserAction" class="adminUserAction">
           <result name="success">/admin/adminUserList.jsp</result>
+          <result name="updatetopage">/admin/updateAdminUser.jsp</result>
        </action>
-       </package>
+    </package>
 </struts>    
